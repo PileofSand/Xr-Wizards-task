@@ -17,7 +17,7 @@ namespace Forklift.Physics
         [SerializeField] private Wheel[] wheels;
 
         private Dictionary<TurnDirection, float> _targetTurnAngles;
-        private float currentSpeed = 0f;
+        private float currentVelocity = 0f;
         private float currentTurnAngle = 0f;
         private float targetTurnAngle = 0f;
 
@@ -33,14 +33,14 @@ namespace Forklift.Physics
         
         private void FixedUpdate()
         {
-            ApplyTorqueToWheels(currentSpeed);
+            ApplyVelocityToWheels(currentVelocity);
             ApplySteering();
         }
 
         private void LateUpdate()
         {
-            if (currentSpeed == 0) return;
-            currentSpeed = Mathf.MoveTowards(currentSpeed, 0f, staticSlowdown * Time.deltaTime);
+            if (currentVelocity == 0) return;
+            currentVelocity = Mathf.MoveTowards(currentVelocity, 0f, staticSlowdown * Time.deltaTime);
         }
 
         public void HandleMovement(float moveInput)
@@ -71,14 +71,14 @@ namespace Forklift.Physics
 
         private void Accelerate()
         {
-            currentSpeed += acceleration * Time.deltaTime;
-            currentSpeed = Mathf.Clamp(currentSpeed, maxBackwardSpeed, maxForwardSpeed);
+            currentVelocity += acceleration * Time.deltaTime;
+            currentVelocity = Mathf.Clamp(currentVelocity, maxBackwardSpeed, maxForwardSpeed);
         }
 
         private void Decelerate()
         {
-            currentSpeed -= deceleration * Time.deltaTime;
-            currentSpeed = Mathf.Clamp(currentSpeed, maxBackwardSpeed, maxForwardSpeed);
+            currentVelocity -= deceleration * Time.deltaTime;
+            currentVelocity = Mathf.Clamp(currentVelocity, maxBackwardSpeed, maxForwardSpeed);
         }
         
         private void ApplySteering()
@@ -94,19 +94,19 @@ namespace Forklift.Physics
 
         public void Brake()
         {
-            currentSpeed = Mathf.MoveTowards(currentSpeed, 0f, brakePower * Time.deltaTime);
+            currentVelocity = Mathf.MoveTowards(currentVelocity, 0f, brakePower * Time.deltaTime);
 
-            if (Mathf.Approximately(currentSpeed, 0f))
+            if (Mathf.Approximately(currentVelocity, 0f))
             {
                 StopTorqueOnWheels();
             }
         }
 
-        private void ApplyTorqueToWheels(float torque)
+        private void ApplyVelocityToWheels(float velocity)
         {
             foreach (var wheel in wheels)
             {
-                wheel.ApplyTorque(torque);
+                wheel.ApplyMotor(velocity);
             }
         }
 
@@ -114,7 +114,7 @@ namespace Forklift.Physics
         {
             foreach (var wheel in wheels)
             {
-                wheel.StopTorque();
+                wheel.StopMotor();
             }
         }
     }

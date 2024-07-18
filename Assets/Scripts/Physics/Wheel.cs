@@ -5,22 +5,36 @@ namespace Forklift.Physics
     [RequireComponent(typeof(Rigidbody))]
     public class Wheel : MonoBehaviour
     {
+        private HingeJoint hingeJoint;
         private Rigidbody rb;
 
         private void Awake()
         {
+            hingeJoint = GetComponent<HingeJoint>();
             rb = GetComponent<Rigidbody>();
         }
 
-        public void ApplyTorque(float force)
+        public void ApplyMotor(float velocity)
         {
-            rb.AddTorque(transform.right * force, ForceMode.Force);
+            if (velocity == 0)
+            {
+                return;
+            }
+            
+            hingeJoint.useMotor = true;
+            var motor = hingeJoint.motor;
+            motor.targetVelocity = velocity;
+            hingeJoint.motor = motor;
         }
 
-        public void StopTorque()
+        public void StopMotor()
         {
-            rb.angularVelocity = Vector3.zero;
+            var motor = hingeJoint.motor;
             rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            motor.targetVelocity = 0f;
+            hingeJoint.motor = motor;
+            hingeJoint.useMotor = false;
         }
     }
 }
