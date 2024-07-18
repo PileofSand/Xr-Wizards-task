@@ -13,7 +13,7 @@ namespace Forklift.Physics
         [SerializeField] private float staticSlowdown = 2f;
         
         [SerializeField] private Rigidbody _frontTires;
-        [SerializeField] private HingeJoint _frontAxisJoint;
+        [SerializeField] private ConfigurableJoint _frontAxisJoint;
         [SerializeField] private Wheel[] wheels;
 
         private Dictionary<TurnDirection, float> _targetTurnAngles;
@@ -26,8 +26,8 @@ namespace Forklift.Physics
             _targetTurnAngles = new Dictionary<TurnDirection, float>
             {
                 {TurnDirection.None, 0f},
-                {TurnDirection.Left, _frontAxisJoint.limits.min},
-                {TurnDirection.Right, _frontAxisJoint.limits.max}
+                {TurnDirection.Left, _frontAxisJoint.lowAngularXLimit.limit},
+                {TurnDirection.Right, _frontAxisJoint.highAngularXLimit.limit}
             };
         }
         

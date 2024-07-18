@@ -452,8 +452,8 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 8323354036031674451}
   m_PrefabAsset: {fileID: 0}
---- !u!59 &1335338045
-HingeJoint:
+--- !u!153 &1335338045
+ConfigurableJoint:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -463,25 +463,85 @@ HingeJoint:
   m_ConnectedArticulationBody: {fileID: 0}
   m_Anchor: {x: 0, y: 1, z: 1}
   m_Axis: {x: 0, y: 1, z: 0}
-  m_AutoConfigureConnectedAnchor: 0
+  m_AutoConfigureConnectedAnchor: 1
   m_ConnectedAnchor: {x: 0, y: 0, z: 0}
-  m_UseSpring: 0
-  m_Spring:
+  serializedVersion: 2
+  m_SecondaryAxis: {x: 0, y: 1, z: 0}
+  m_XMotion: 0
+  m_YMotion: 0
+  m_ZMotion: 0
+  m_AngularXMotion: 1
+  m_AngularYMotion: 1
+  m_AngularZMotion: 1
+  m_LinearLimitSpring:
+    spring: 1000
+    damper: 100
+  m_LinearLimit:
+    limit: 0
+    bounciness: 0
+    contactDistance: 0
+  m_AngularXLimitSpring:
     spring: 0
     damper: 0
-    targetPosition: 0
-  m_UseMotor: 0
-  m_Motor:
-    targetVelocity: 0
-    force: 0
-    freeSpin: 0
-  m_UseLimits: 1
-  m_Limits:
-    min: -25
-    max: 25
+  m_LowAngularXLimit:
+    limit: -30
     bounciness: 0
-    bounceMinVelocity: 0.2
     contactDistance: 0
+  m_HighAngularXLimit:
+    limit: 30
+    bounciness: 0
+    contactDistance: 0
+  m_AngularYZLimitSpring:
+    spring: 0
+    damper: 0
+  m_AngularYLimit:
+    limit: 30
+    bounciness: 0
+    contactDistance: 0
+  m_AngularZLimit:
+    limit: 25.797327
+    bounciness: 0
+    contactDistance: 0
+  m_TargetPosition: {x: 0, y: 0, z: 0}
+  m_TargetVelocity: {x: 0, y: 0, z: 0}
+  m_XDrive:
+    serializedVersion: 3
+    positionSpring: 10000
+    positionDamper: 500
+    maximumForce: 3.4028233e+38
+  m_YDrive:
+    serializedVersion: 3
+    positionSpring: 10000
+    positionDamper: 500
+    maximumForce: 3.4028233e+38
+  m_ZDrive:
+    serializedVersion: 3
+    positionSpring: 10000
+    positionDamper: 500
+    maximumForce: 3.4028233e+38
+  m_TargetRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_TargetAngularVelocity: {x: 0, y: 0, z: 0}
+  m_RotationDriveMode: 0
+  m_AngularXDrive:
+    serializedVersion: 3
+    positionSpring: 1000
+    positionDamper: 100
+    maximumForce: 3.4028233e+38
+  m_AngularYZDrive:
+    serializedVersion: 3
+    positionSpring: 1000
+    positionDamper: 100
+    maximumForce: 3.4028233e+38
+  m_SlerpDrive:
+    serializedVersion: 3
+    positionSpring: 0
+    positionDamper: 0
+    maximumForce: 3.4028233e+38
+  m_ProjectionMode: 0
+  m_ProjectionDistance: 0.1
+  m_ProjectionAngle: 180
+  m_ConfiguredInWorldSpace: 0
+  m_SwapBodies: 0
   m_BreakForce: Infinity
   m_BreakTorque: Infinity
   m_EnableCollision: 0
@@ -1013,18 +1073,58 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 415796966626177334, guid: 07c736aeab7eae34f9eaa7e76376da33,
         type: 3}
+      propertyPath: m_Drag
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 415796966626177334, guid: 07c736aeab7eae34f9eaa7e76376da33,
+        type: 3}
       propertyPath: m_Mass
-      value: 10
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 415796966626177334, guid: 07c736aeab7eae34f9eaa7e76376da33,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 420722767246046190, guid: 07c736aeab7eae34f9eaa7e76376da33,
+        type: 3}
+      propertyPath: m_Drag
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 420722767246046190, guid: 07c736aeab7eae34f9eaa7e76376da33,
         type: 3}
       propertyPath: m_Mass
-      value: 10
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 420722767246046190, guid: 07c736aeab7eae34f9eaa7e76376da33,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 678952873293847009, guid: 07c736aeab7eae34f9eaa7e76376da33,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1188734164517487785, guid: 07c736aeab7eae34f9eaa7e76376da33,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2025090233983739591, guid: 07c736aeab7eae34f9eaa7e76376da33,
         type: 3}
       propertyPath: m_Mass
-      value: 40
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2307399576091121065, guid: 07c736aeab7eae34f9eaa7e76376da33,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2669844541524446533, guid: 07c736aeab7eae34f9eaa7e76376da33,
+        type: 3}
+      propertyPath: m_Anchor.x
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 2669844541524446533, guid: 07c736aeab7eae34f9eaa7e76376da33,
         type: 3}
@@ -1034,12 +1134,12 @@ PrefabInstance:
     - target: {fileID: 2669844541524446533, guid: 07c736aeab7eae34f9eaa7e76376da33,
         type: 3}
       propertyPath: m_Spring.damper
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2669844541524446533, guid: 07c736aeab7eae34f9eaa7e76376da33,
         type: 3}
       propertyPath: m_Spring.spring
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2669844541524446533, guid: 07c736aeab7eae34f9eaa7e76376da33,
         type: 3}
@@ -1059,12 +1159,12 @@ PrefabInstance:
     - target: {fileID: 3230818721717663844, guid: 07c736aeab7eae34f9eaa7e76376da33,
         type: 3}
       propertyPath: acceleration
-      value: 120
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 3230818721717663844, guid: 07c736aeab7eae34f9eaa7e76376da33,
         type: 3}
       propertyPath: deceleration
-      value: 60
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 3230818721717663844, guid: 07c736aeab7eae34f9eaa7e76376da33,
         type: 3}
@@ -1073,28 +1173,58 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3230818721717663844, guid: 07c736aeab7eae34f9eaa7e76376da33,
         type: 3}
+      propertyPath: _frontAxisJoint
+      value: 
+      objectReference: {fileID: 1335338045}
+    - target: {fileID: 3230818721717663844, guid: 07c736aeab7eae34f9eaa7e76376da33,
+        type: 3}
       propertyPath: maxForwardSpeed
       value: 500
       objectReference: {fileID: 0}
     - target: {fileID: 3230818721717663844, guid: 07c736aeab7eae34f9eaa7e76376da33,
         type: 3}
       propertyPath: maxBackwardSpeed
-      value: -150
+      value: -200
+      objectReference: {fileID: 0}
+    - target: {fileID: 3638099252128220704, guid: 07c736aeab7eae34f9eaa7e76376da33,
+        type: 3}
+      propertyPath: m_Drag
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3638099252128220704, guid: 07c736aeab7eae34f9eaa7e76376da33,
         type: 3}
       propertyPath: m_Mass
-      value: 10
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3638099252128220704, guid: 07c736aeab7eae34f9eaa7e76376da33,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3864980360532689840, guid: 07c736aeab7eae34f9eaa7e76376da33,
+        type: 3}
+      propertyPath: m_Drag
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 3864980360532689840, guid: 07c736aeab7eae34f9eaa7e76376da33,
         type: 3}
       propertyPath: m_Mass
-      value: 10
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3864980360532689840, guid: 07c736aeab7eae34f9eaa7e76376da33,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4344936688562453112, guid: 07c736aeab7eae34f9eaa7e76376da33,
         type: 3}
       propertyPath: m_Anchor.x
-      value: 2
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4344936688562453112, guid: 07c736aeab7eae34f9eaa7e76376da33,
+        type: 3}
+      propertyPath: m_UseLimits
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4344936688562453112, guid: 07c736aeab7eae34f9eaa7e76376da33,
         type: 3}
@@ -1104,12 +1234,12 @@ PrefabInstance:
     - target: {fileID: 4344936688562453112, guid: 07c736aeab7eae34f9eaa7e76376da33,
         type: 3}
       propertyPath: m_Spring.damper
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4344936688562453112, guid: 07c736aeab7eae34f9eaa7e76376da33,
         type: 3}
       propertyPath: m_Spring.spring
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4344936688562453112, guid: 07c736aeab7eae34f9eaa7e76376da33,
         type: 3}
@@ -1123,28 +1253,48 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4532904284584140801, guid: 07c736aeab7eae34f9eaa7e76376da33,
         type: 3}
+      propertyPath: m_Anchor.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532904284584140801, guid: 07c736aeab7eae34f9eaa7e76376da33,
+        type: 3}
+      propertyPath: m_UseLimits
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532904284584140801, guid: 07c736aeab7eae34f9eaa7e76376da33,
+        type: 3}
       propertyPath: m_UseSpring
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4532904284584140801, guid: 07c736aeab7eae34f9eaa7e76376da33,
         type: 3}
       propertyPath: m_Spring.damper
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4532904284584140801, guid: 07c736aeab7eae34f9eaa7e76376da33,
         type: 3}
       propertyPath: m_Spring.spring
-      value: 10
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4532904284584140801, guid: 07c736aeab7eae34f9eaa7e76376da33,
+        type: 3}
+      propertyPath: m_ConnectedAnchor.x
+      value: -0.18412995
       objectReference: {fileID: 0}
     - target: {fileID: 4532904284584140801, guid: 07c736aeab7eae34f9eaa7e76376da33,
         type: 3}
       propertyPath: m_AutoConfigureConnectedAnchor
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4719094903327212595, guid: 07c736aeab7eae34f9eaa7e76376da33,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 4958324531739726221, guid: 07c736aeab7eae34f9eaa7e76376da33,
         type: 3}
       propertyPath: m_Anchor.x
-      value: -2
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 4958324531739726221, guid: 07c736aeab7eae34f9eaa7e76376da33,
         type: 3}
@@ -1154,12 +1304,12 @@ PrefabInstance:
     - target: {fileID: 4958324531739726221, guid: 07c736aeab7eae34f9eaa7e76376da33,
         type: 3}
       propertyPath: m_Spring.damper
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4958324531739726221, guid: 07c736aeab7eae34f9eaa7e76376da33,
         type: 3}
       propertyPath: m_Spring.spring
-      value: 10
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4958324531739726221, guid: 07c736aeab7eae34f9eaa7e76376da33,
         type: 3}
@@ -1178,8 +1328,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5859697490821589994, guid: 07c736aeab7eae34f9eaa7e76376da33,
         type: 3}
+      propertyPath: m_Drag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859697490821589994, guid: 07c736aeab7eae34f9eaa7e76376da33,
+        type: 3}
       propertyPath: m_Mass
-      value: 70
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859697490821589994, guid: 07c736aeab7eae34f9eaa7e76376da33,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 5859697490821589994, guid: 07c736aeab7eae34f9eaa7e76376da33,
+        type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6462473902133769119, guid: 07c736aeab7eae34f9eaa7e76376da33,
         type: 3}
@@ -1188,48 +1353,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6514875339507631019, guid: 07c736aeab7eae34f9eaa7e76376da33,
         type: 3}
+      propertyPath: m_Drag
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6514875339507631019, guid: 07c736aeab7eae34f9eaa7e76376da33,
+        type: 3}
       propertyPath: m_Mass
-      value: 50
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6514875339507631019, guid: 07c736aeab7eae34f9eaa7e76376da33,
+        type: 3}
+      propertyPath: m_AngularDrag
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 6514875339507631019, guid: 07c736aeab7eae34f9eaa7e76376da33,
         type: 3}
       propertyPath: m_CollisionDetection
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 7301680956883140747, guid: 07c736aeab7eae34f9eaa7e76376da33,
-        type: 3}
-      propertyPath: m_Anchor.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7301680956883140747, guid: 07c736aeab7eae34f9eaa7e76376da33,
-        type: 3}
-      propertyPath: m_UseSpring
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7301680956883140747, guid: 07c736aeab7eae34f9eaa7e76376da33,
-        type: 3}
-      propertyPath: m_Spring.damper
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7301680956883140747, guid: 07c736aeab7eae34f9eaa7e76376da33,
-        type: 3}
-      propertyPath: m_Spring.spring
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7301680956883140747, guid: 07c736aeab7eae34f9eaa7e76376da33,
-        type: 3}
-      propertyPath: m_ConnectedAnchor.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7301680956883140747, guid: 07c736aeab7eae34f9eaa7e76376da33,
-        type: 3}
-      propertyPath: m_AutoConfigureConnectedAnchor
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 8323354036031674461, guid: 07c736aeab7eae34f9eaa7e76376da33,
         type: 3}
       propertyPath: m_Size.x
-      value: -0.2
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8323354036031674461, guid: 07c736aeab7eae34f9eaa7e76376da33,
         type: 3}
@@ -1249,7 +1394,7 @@ PrefabInstance:
     - target: {fileID: 8323354036031674462, guid: 07c736aeab7eae34f9eaa7e76376da33,
         type: 3}
       propertyPath: m_Size.x
-      value: -0.2
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 8323354036031674462, guid: 07c736aeab7eae34f9eaa7e76376da33,
         type: 3}
